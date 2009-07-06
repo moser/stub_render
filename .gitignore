@@ -1,0 +1,5 @@
+*~
+test/rails_root/log/*
+test/rails_root/tmp/*
+test/rails_foot/db/*.sqlite3
+

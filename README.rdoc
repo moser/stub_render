@@ -1,0 +1,24 @@
+= String acceptance
+
+== Usage
+
+  class Thing < ActiveRecord::Base
+    belongs_to :foo
+    accepts_string_for :foo
+    #...
+  end
+  
+== Options
+
+=== :parent_method
+The attribute of the parent object for which strings should be accepted.
+Defaults to 'name'.
+
+Also accepts an array of attributes (like [:name, :code] for finding a country by it's name and code). 
+
+  
+=== :create
+Should new objects be created. Defaults to true
+
+=== :ignore_case
+Defaults to true
