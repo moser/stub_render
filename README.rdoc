@@ -1,24 +1,21 @@
-= String acceptance
+= stub render
+Stubs Rails' view rendering. Views or partials will not be evaluated, but all parameters of 
+the response (status, rendered) will be set like they would be without stubbing.
+Missing views/partials will generate an error.
+
+== Installation
+  ./script/plugin install git://github.com/moser/stub_render.git
 
 == Usage
 
-  class Thing < ActiveRecord::Base
-    belongs_to :foo
-    accepts_string_for :foo
-    #...
+  class MyTest < ActionController::TestCase
+    test SomeController
+    
+    def setup
+      #...
+      @controller.stub_render = true
+    end
   end
-  
-== Options
 
-=== :parent_method
-The attribute of the parent object for which strings should be accepted.
-Defaults to 'name'.
-
-Also accepts an array of attributes (like [:name, :code] for finding a country by it's name and code). 
-
-  
-=== :create
-Should new objects be created. Defaults to true
-
-=== :ignore_case
-Defaults to true
+== TODO
+Only load the plugin in test environment.
